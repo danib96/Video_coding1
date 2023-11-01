@@ -113,7 +113,7 @@ def serpentine(input):
         byte = x[i][j]        ##store the first value
         lst.append(byte)
         ##starting the actual serpentine
-        while len(lst)<=64:
+        while len(lst)<=63:
         ##getting the first half of the matrix(the calculation takes into account that
         ##the first position of an array is setted as 0 and not a 1, so the last position
         ##of the matrix will be [7,7] not [8,8]
@@ -123,52 +123,55 @@ def serpentine(input):
                     byte=x[i][j+1]
                     lst.append(byte)
                     j+=1
-                if j%2 and i==0:
+                elif j%2 and i==0:
                     k=1
                     while k<=j:
                         byte=x[i+k][j-k]
                         lst.append(byte)
                         k+=1
-                    i=i+k
-                    j=j-k
-                if i%2 and j==0:
+                    print(j)
+                    print(k)
+                    i=i+(k-1)
+                    print(i)
+                    j=j-(k-1)
+                elif i%2 and j==0:
                     byte=x[i+1][j]
                     lst.append(byte)
                     i+=1
-                if i%2==0 and j==0:
+                elif i%2==0 and j==0:
                     k = 1
                     while k <=i:
                         byte = x[i - k][j + k]
                         lst.append(byte)
                         k += 1
-                    i=i-k
-                    j=j+k
+                    i=i-(k-1)
+                    j=j+(k-1)
 
             while j!=7 or i!=7:             ###here i pass the "second half" of the image
                 if j%2==0 and i==7:
                     byte=x[i][j+1]
                     lst.append(byte)
                     j+=1
-                if j%2 and i==7:
+                elif j%2 and i==7:
                     k=1
                     while k<=(7-j):
                         byte=x[i-k][j+k]
                         lst.append(byte)
                         k+=1
-                    i=i-k
-                    j=j+k
-                if i%2 and j==7:
+                    i=i-(k-1)
+                    j=j+(k-1)
+                elif i%2 and j==7:
                     byte = x[i+1][j]
                     lst.append(byte)
                     i += 1
-                if i%2==0 and j==7:
+                elif i%2==0 and j==7:
                     k=1
                     while k<=(7-i):
                         byte=x[i+k][j-k]
                         lst.append(byte)
                         k+=1
-                    i=i+k
-                    j=j-k
+                    i=i+(k-1)
+                    j=j-(k-1)
 
     return lst
 
