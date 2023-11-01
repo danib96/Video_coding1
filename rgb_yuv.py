@@ -123,7 +123,7 @@ def serpentine(input):
                     byte=x[i][j+1]
                     lst.append(byte)
                     j+=1
-                elif j%2 and i==0:
+                if j%2 and i==0:
                     k=1
                     while k<=j:
                         byte=x[i+k][j-k]
@@ -131,11 +131,11 @@ def serpentine(input):
                         k+=1
                     i=i+k
                     j=j-k
-                elif i%2 and j==0:
+                if i%2 and j==0:
                     byte=x[i+1][j]
                     lst.append(byte)
                     i+=1
-                elif i%2==0 and j==0:
+                if i%2==0 and j==0:
                     k = 1
                     while k <=i:
                         byte = x[i - k][j + k]
@@ -144,12 +144,12 @@ def serpentine(input):
                     i=i-k
                     j=j+k
 
-            while j!=7 and i!=7:             ###here i pass the "second half" of the image
+            while j!=7 or i!=7:             ###here i pass the "second half" of the image
                 if j%2==0 and i==7:
                     byte=x[i][j+1]
                     lst.append(byte)
                     j+=1
-                elif j%2 and i==7:
+                if j%2 and i==7:
                     k=1
                     while k<=(7-j):
                         byte=x[i-k][j+k]
@@ -157,13 +157,13 @@ def serpentine(input):
                         k+=1
                     i=i-k
                     j=j+k
-                elif i%2 and j==7:
+                if i%2 and j==7:
                     byte = x[i+1][j]
                     lst.append(byte)
                     i += 1
-                elif i%2==0 and i==7:
+                if i%2==0 and j==7:
                     k=1
-                    while k<=(7-j):
+                    while k<=(7-i):
                         byte=x[i+k][j-k]
                         lst.append(byte)
                         k+=1
