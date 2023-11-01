@@ -129,10 +129,9 @@ def serpentine(input):
                         byte=x[i+k][j-k]
                         lst.append(byte)
                         k+=1
-                    print(j)
-                    print(k)
+                    
+
                     i=i+(k-1)
-                    print(i)
                     j=j-(k-1)
                 elif i%2 and j==0:
                     byte=x[i+1][j]
